@@ -14,7 +14,7 @@ if (!process.env.NAME) throw new Error("Please specify NAME in environment.");
 if (!process.env.PIC) throw new Error("Please specify PIC in environment.");
 
 const picPath = "https://instagram.fjog3-1.fna.fbcdn.net/v/t51.2885-19/327175868_2594372777369555_408525985531825408_n.jpg?stp=dst-jpg_s320x320&_nc_ht=instagram.fjog3-1.fna.fbcdn.net&_nc_cat=111&_nc_ohc=Gp_0pGtDnJEAX-nh3vF&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfB1WHQwWk_NMdeVfX0l7lW_vHEF04DATUzOdi6FERjxZw&oe=63DE101A&_nc_sid=8fd12b";
-const msgPath = process.env.SCROLL_MSG;
+const msgPath = "https://api.telegra.ph/getPage/Selamat-Ulang-Tahun-Ke-22-01-31?return_content=true";
 
 //Local initialization
 const setLocalData = async () => {
@@ -45,7 +45,7 @@ const setRemoteData = async () => {
     if (msgPath) {
       const article = msgPath.split("/").pop();
       res = await axios.get(
-        `https://api.telegra.ph/getPage/Selamat-Ulang-Tahun-Ke-22-01-31?return_content=true`
+        `https://api.telegra.ph/getPage/{$article}?return_content=true`
       );
       const { content } = res.data.result;
       markup = content.reduce(
